@@ -334,7 +334,7 @@ class MoveTheImagesToTheRightPositionsScene extends Phaser.Scene {
   }
 
   addQuestionIcon(card) {
-    let length = this.cameras.main.height * 10 / 100
+    let length = this.cameras.main.height * 15 / 100
     let data = {
       x: card.x,
       y: card.y - card.displayHeight / 2 - length / 2,

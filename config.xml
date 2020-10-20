@@ -1,11 +1,11 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="com.giangntsolution.cotienxanh" version="0.0.1">
+<widget id="com.giangnt.cotien" version="0.0.2">
     <name short="CôTiênXanh">Cô Tiên Xanh</name>
     <description>
       Vui học cùng Cô Tiên Xanh
     </description>
-    <author email="adamnguyen.itdn@gmail.com" href="https://facebook.com/thanh.taro">
-      Nguyen Tri Thanh
+    <author email="nguyentrigiang1991@gmail.com" href="https://github.com/nguyentrigiang">
+      Nguyen Tri Giang
     </author>
     <content src="index.html" />
     <access origin="*" />

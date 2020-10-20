@@ -98,7 +98,10 @@ class GameTwoSubTwoScene extends Phaser.Scene {
   createLevelButtons () {
     if (this.things.levelEasyButton === undefined) {
       this.things.levelEasyButton = new LevelEasyButton(this)
-      this.things.levelEasyButton.setCallback(() => this.scene.start(MainGameScene.KEY, {parentSceneKey: GameTwoSubTwoScene.KEY, forceRestart: true, gameSceneKey: GameTwoSubTwoScene.GAME_SCENE_KEY, level: 'easy' }))
+      // this.things.levelEasyButton.setCallback(() => this.scene.start(MainGameScene.KEY, {parentSceneKey: GameTwoSubTwoScene.KEY, forceRestart: true, gameSceneKey: GameTwoSubTwoScene.GAME_SCENE_KEY, level: 'easy' }))
+      this.things.levelEasyButton.setCallback(() => {
+        this.scene.run(GameTwoSubTwoScene.GAME_SCENE_KEY, {level: 'easy' })
+      })
     }
     // if (this.things.levelNormalButton === undefined) {
     //   this.things.levelNormalButton = new LevelNormalButton(this)

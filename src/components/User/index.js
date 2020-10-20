@@ -12,27 +12,28 @@ class User {
     let user = store.get('user')
 
     if (undefined !== user && undefined === user.coin) user.coin = 200
-    if (undefined !== user && (undefined === user.diamond || user.diamond === null)) user.diamond = 0
+    if (undefined !== user && (undefined === user.diamond || user.diamond === null)) user.diamond = 90
 
     return user
   }
 
   static setCoin (coin) {
     let user = store.get('user')
-    const id = user.id
+    // const id = user.id
 
     user.coin = coin
     store.set('user', user)
-    axios.post('http://api.cotienxanh.edu.vn/set-coin', { id, coin })
+    // axios.post('http://api.cotienxanh.edu.vn/set-coin', { id, coin })
   }
 
   static setDiamond (diamond) {
     let user = store.get('user')
-    const id = user.id
-
-    user.diamond = diamond
+    // const id = user.id
+    console.log(user.diamond, diamond);
+    user.diamond += diamond
+    console.log(user.diamond, diamond);
     store.set('user', user)
-    axios.post('http://api.cotienxanh.edu.vn/set-diamond', { id, diamond })
+    // axios.post('http://api.cotienxanh.edu.vn/set-diamond', { id, diamond })
   }
 }
 

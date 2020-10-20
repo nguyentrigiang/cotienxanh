@@ -3,6 +3,7 @@ var webpack = require('webpack')
 var CleanWebpackPlugin = require('clean-webpack-plugin')
 var HtmlWebpackPlugin = require('html-webpack-plugin')
 var MiniCssExtractPlugin = require('mini-css-extract-plugin')
+var ImageminPlugin = require('imagemin-webpack-plugin').default
 
 var appDir = path.join(__dirname, '/src/app/')
 
@@ -43,6 +44,11 @@ module.exports = {
         removeEmptyAttributes: true
       },
       hash: true
+    }),
+    new ImageminPlugin({
+      pngquant: {
+        quality: '70-75'
+      }
     })
   ],
   // optimization: {

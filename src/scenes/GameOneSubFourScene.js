@@ -99,19 +99,31 @@ class GameOneSubFourScene extends Phaser.Scene {
   createLevelButtons () {
     if (this.things.levelEasyButton === undefined) {
       this.things.levelEasyButton = new LevelEasyButton(this)
-      this.things.levelEasyButton.setCallback(() => this.scene.start(MainGameScene.KEY, {parentSceneKey: GameOneSubFourScene.KEY, forceRestart: true, gameSceneKey: GameOneSubFourScene.GAME_SCENE_KEY, level: 'easy' }))
+      // this.things.levelEasyButton.setCallback(() => this.scene.start(MainGameScene.KEY, {parentSceneKey: GameOneSubFourScene.KEY, forceRestart: true, gameSceneKey: GameOneSubFourScene.GAME_SCENE_KEY, level: 'easy' }))
+      this.things.levelEasyButton.setCallback(() => {
+        this.scene.run(GameOneSubFourScene.GAME_SCENE_KEY, {level: 'easy' })
+      })
     }
     if (this.things.levelNormalButton === undefined) {
       this.things.levelNormalButton = new LevelNormalButton(this)
-      this.things.levelNormalButton.setCallback(() => this.scene.start(MainGameScene.KEY, {parentSceneKey: GameOneSubFourScene.KEY, forceRestart: true, gameSceneKey: GameOneSubFourScene.GAME_SCENE_KEY, level: 'normal' }))
+      // this.things.levelNormalButton.setCallback(() => this.scene.start(MainGameScene.KEY, {parentSceneKey: GameOneSubFourScene.KEY, forceRestart: true, gameSceneKey: GameOneSubFourScene.GAME_SCENE_KEY, level: 'normal' }))
+      this.things.levelNormalButton.setCallback(() => {
+        this.scene.run(GameOneSubFourScene.GAME_SCENE_KEY, {level: 'normal' })
+      })
     }
     if (this.things.levelHardButton === undefined) {
       this.things.levelHardButton = new LevelHardButton(this)
-      this.things.levelHardButton.setCallback(() => this.scene.start(MainGameScene.KEY, {parentSceneKey: GameOneSubFourScene.KEY, forceRestart: true, gameSceneKey: GameOneSubFourScene.GAME_SCENE_KEY, level: 'hard' }))
+      // this.things.levelHardButton.setCallback(() => this.scene.start(MainGameScene.KEY, {parentSceneKey: GameOneSubFourScene.KEY, forceRestart: true, gameSceneKey: GameOneSubFourScene.GAME_SCENE_KEY, level: 'hard' }))
+      this.things.levelHardButton.setCallback(() => {
+        this.scene.run(GameOneSubFourScene.GAME_SCENE_KEY, {level: 'hard' })
+      })
     }
     if (this.things.levelHardestButton === undefined) {
       this.things.levelHardestButton = new LevelHardestButton(this)
-      this.things.levelHardestButton.setCallback(() => this.scene.start(MainGameScene.KEY, {parentSceneKey: GameOneSubFourScene.KEY, forceRestart: true, gameSceneKey: GameOneSubFourScene.GAME_SCENE_KEY, level: 'hardest' }))
+      // this.things.levelHardestButton.setCallback(() => this.scene.start(MainGameScene.KEY, {parentSceneKey: GameOneSubFourScene.KEY, forceRestart: true, gameSceneKey: GameOneSubFourScene.GAME_SCENE_KEY, level: 'hardest' }))
+      this.things.levelHardestButton.setCallback(() => {
+        this.scene.run(GameOneSubFourScene.GAME_SCENE_KEY, {level: 'hardest' })
+      })
     }
   }
 }

@@ -35,6 +35,13 @@ class GameOneScene extends Phaser.Scene {
     this.createSubGameButtons()
 
     addBee(this)
+    this.events.on('resume', this.onResume.bind(this))
+  }
+
+  onResume (scene, data) {
+    // if (undefined !== data && undefined !== data.from) {
+    //   User.setDiamond(data.diamond)
+    // }
   }
 
   forceRestart () {

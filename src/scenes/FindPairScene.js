@@ -6,6 +6,7 @@ import Cards from '../components/Cards'
 import RightSound from '../components/RightSound'
 import WrongSound from '../components/WrongSound'
 import { destroyObject, randItem, randSplice, shuffle, clearCaches } from '../helpers'
+import GameOneSubOneScene from './GameOneSubOneScene'
 
 class FindPairScene extends Phaser.Scene {
   static get KEY () {
@@ -26,10 +27,8 @@ class FindPairScene extends Phaser.Scene {
     this.cameras.main.setBackgroundColor('#00796B')
 
     this.things.level = data.level
-
     this.createMusicButton()
     this.createBackButton()
-
     this.generate()
   }
 
@@ -244,7 +243,7 @@ class FindPairScene extends Phaser.Scene {
   createBackButton () {
     destroyObject(this.things.backButton)
 
-    this.things.backButton = new BackButton(this, MainGameScene.KEY)
+    this.things.backButton = new BackButton(this, GameOneSubOneScene.KEY)
   }
 
   onPointerDown (pointer, x, y, event) {
@@ -324,7 +323,7 @@ class FindPairScene extends Phaser.Scene {
   won () {
     clearCaches(this)
     this.scene.stop()
-    this.scene.resume(MainGameScene.KEY, { from: FindPairScene.KEY, diamond: FindPairScene.WIN_DIAMOND })
+    this.scene.resume(GameOneSubOneScene.KEY, { from: FindPairScene.KEY, diamond: FindPairScene.WIN_DIAMOND })
   }
 }
 

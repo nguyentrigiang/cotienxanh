@@ -1,5 +1,6 @@
 import Phaser from 'phaser'
 import User from '../User'
+import store from 'store'
 
 class DiamondText extends Phaser.GameObjects.Text {
   constructor (scene, addToScene = true, config = {}) {
@@ -28,6 +29,11 @@ class DiamondText extends Phaser.GameObjects.Text {
 
   updateDiamond () {
     this.setText(this.diamond)
+  }
+
+  refreshDiamond () {
+    var diamond = store.get(diamond)
+    this.setText(diamond)
   }
 }
 

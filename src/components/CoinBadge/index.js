@@ -25,7 +25,7 @@ class CoinBadge {
 
     if (force || this.oldCoin + 10 <= this.coinText.coin) {
       this.oldCoin = this.coinText.coin
-      User.setCoin(this.coinText.coin)
+      // User.setCoin(this.coinText.coin)
     }
   }
 }

@@ -1,6 +1,7 @@
 import DiamondImage from './DiamondImage'
 import DiamondText from './DiamondText'
 import User from '../User'
+import store from 'store'
 
 class DiamondBadge {
   static preload (scene) {
@@ -16,17 +17,24 @@ class DiamondBadge {
   }
 
   addDiamond (diamond = 1, force = false) {
-    if (undefined === this.oldDiamond) {
-      this.oldDiamond = parseInt(this.diamondText.diamond)
-    }
-
+    var user = User.currentUser()
     this.diamondText.diamond += parseInt(diamond)
-    this.diamondText.updateDiamond()
+    store.set('diamond', this.diamondText.diamond)
 
-    if (force || this.oldDiamond + 1 <= this.diamondText.diamond) {
-      this.oldDiamond = this.diamondText.diamond
-      User.setDiamond(this.diamondText.diamond)
-    }
+    // if (undefined === this.oldDiamond) {
+    //   this.oldDiamond = parseInt(this.diamondText.diamond)
+    // }
+    // this.diamondText.diamond += parseInt(diamond)
+    // this.diamondText.updateDiamond()
+    //
+    // if (force || this.oldDiamond + 1 <= this.diamondText.diamond) {
+    //   this.oldDiamond = this.diamondText.diamond
+    //   User.setDiamond(this.diamondText.diamond)
+    // }
+  }
+
+  refreshDiamond () {
+    this.diamondText.refreshDiamond()
   }
 }
 

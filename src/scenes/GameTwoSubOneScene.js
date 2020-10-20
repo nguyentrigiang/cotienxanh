@@ -54,7 +54,7 @@ class GameTwoSubOneScene extends Phaser.Scene {
 
     const centerX = this.cameras.main.centerX
     const centerY = this.cameras.main.height * 0.95
-    const fontSize = Math.floor(this.cameras.main.height * 0.2)
+    const fontSize = Math.floor(this.cameras.main.height * 0.15)
     this.things.backgroundText = this.make.text({
       x: centerX,
       y: centerY,
@@ -97,11 +97,17 @@ class GameTwoSubOneScene extends Phaser.Scene {
   createLevelButtons () {
     if (this.things.levelEasyButton === undefined) {
       this.things.levelEasyButton = new LevelEasyButton(this)
-      this.things.levelEasyButton.setCallback(() => this.scene.start(MainGameScene.KEY, {parentSceneKey: GameTwoSubOneScene.KEY, forceRestart: true, gameSceneKey: GameTwoSubOneScene.GAME_SCENE_KEY, level: 'easy' }))
+      // this.things.levelEasyButton.setCallback(() => this.scene.start(MainGameScene.KEY, {parentSceneKey: GameTwoSubOneScene.KEY, forceRestart: true, gameSceneKey: GameTwoSubOneScene.GAME_SCENE_KEY, level: 'easy' }))
+      this.things.levelEasyButton.setCallback(() => {
+        this.scene.run(GameTwoSubOneScene.GAME_SCENE_KEY, {level: 'easy' })
+      })
     }
     if (this.things.levelNormalButton === undefined) {
       this.things.levelNormalButton = new LevelNormalButton(this)
-      this.things.levelNormalButton.setCallback(() => this.scene.start(MainGameScene.KEY, {parentSceneKey: GameTwoSubOneScene.KEY, forceRestart: true, gameSceneKey: GameTwoSubOneScene.GAME_SCENE_KEY, level: 'normal' }))
+      // this.things.levelNormalButton.setCallback(() => this.scene.start(MainGameScene.KEY, {parentSceneKey: GameTwoSubOneScene.KEY, forceRestart: true, gameSceneKey: GameTwoSubOneScene.GAME_SCENE_KEY, level: 'normal' }))
+      this.things.levelNormalButton.setCallback(() => {
+        this.scene.run(GameTwoSubOneScene.GAME_SCENE_KEY, {level: 'normal' })
+      })
     }
   }
 }

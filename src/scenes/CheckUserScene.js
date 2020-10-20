@@ -18,8 +18,22 @@ class CheckUserScene extends Phaser.Scene {
   }
 
   create () {
-    if (undefined !== User.currentUser()) this.moveToHome()
-    else this.createLoginUI()
+    if (undefined === User.currentUser()) {
+      var user = {
+        age: "4",
+        coin: 200,
+        created_at: "2020-07-04 09:37:05",
+        diamond: 0,
+        gender: "female",
+        id: "197",
+        name: "giangnt",
+        updated_at: "2020-07-04 09:37:05"
+      }
+      User.storeUser(user)
+    }
+    this.moveToHome()
+    // if (undefined !== User.currentUser()) this.moveToHome()
+    // else this.createLoginUI()
   }
 
   createLoginUI () {

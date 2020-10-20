@@ -111,21 +111,25 @@ class GameFourScene extends Phaser.Scene {
       this.things.levelEasyButton = new LevelEasyButton(this)
       this.things.levelEasyButton.setCallback(() => {
         this.things.welcomeAudio.stop()
-        this.scene.start(MainGameScene.KEY, {parentSceneKey: GameFourScene.KEY, forceRestart: true, gameSceneKey: GameFourScene.GAME_SCENE_KEY, level: 'easy' })
+        // this.scene.start(MainGameScene.KEY, {parentSceneKey: GameFourScene.KEY, forceRestart: true, gameSceneKey: GameFourScene.GAME_SCENE_KEY, level: 'easy' })
+        this.scene.run(GameFourScene.GAME_SCENE_KEY, {level: 'easy' })
+
       })
     }
     if (this.things.levelNormalButton === undefined) {
       this.things.levelNormalButton = new LevelNormalButton(this)
       this.things.levelNormalButton.setCallback(() => {
         this.things.welcomeAudio.stop()
-        this.scene.start(MainGameScene.KEY, {parentSceneKey: GameFourScene.KEY, forceRestart: true, gameSceneKey: GameFourScene.GAME_SCENE_KEY, level: 'normal' })
+        // this.scene.start(MainGameScene.KEY, {parentSceneKey: GameFourScene.KEY, forceRestart: true, gameSceneKey: GameFourScene.GAME_SCENE_KEY, level: 'normal' })
+        this.scene.run(GameFourScene.GAME_SCENE_KEY, {level: 'normal' })
       })
     }
     if (this.things.levelHardButton === undefined) {
       this.things.levelHardButton = new LevelHardButton(this)
       this.things.levelHardButton.setCallback(() => {
         this.things.welcomeAudio.stop()
-        this.scene.start(MainGameScene.KEY, {parentSceneKey: GameFourScene.KEY, forceRestart: true, gameSceneKey: GameFourScene.GAME_HARD_SCENE_KEY, level: 'hard' })
+        // this.scene.start(MainGameScene.KEY, {parentSceneKey: GameFourScene.KEY, forceRestart: true, gameSceneKey: GameFourScene.GAME_HARD_SCENE_KEY, level: 'hard' })
+        this.scene.run(GameFourScene.GAME_HARD_SCENE_KEY, {level: 'hard' })
       })
     }
   }

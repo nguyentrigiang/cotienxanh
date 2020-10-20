@@ -1,6 +1,6 @@
 {
-  "name": "@taro/cotienxanh",
-  "version": "0.0.1",
+  "name": "@giangnt/cotien",
+  "version": "0.0.2",
   "description": "Vui học cùng Cô Tiên Xanh",
   "main": "index.js",
   "scripts": {
@@ -16,26 +16,25 @@
   },
   "keywords": [
     "game",
-    "cotienxanh",
+    "cotien",
     "tro",
     "choi",
     "hoc",
     "tap",
     "co",
     "tien",
-    "xanh",
-    "taro"
+    "giangnt"
   ],
-  "author": "Nguyen Tri Thanh <adamnguyen.itdn@gmail.com>",
+  "author": "Nguyen Tri Giang <nguyentrigiang1991@gmail.com>",
   "license": "ISC",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/thanh-taro/cotienxanh-app.git"
+    "url": "https://github.com/nguyentrigiang"
   },
   "bugs": {
-    "url": "https://github.com/thanh-taro/cotienxanh-app.git/issues"
+    "url": "https://github.com/nguyentrigiang"
   },
-  "homepage": "https://github.com/thanh-taro/cotienxanh-app.git#readme",
+  "homepage": "https://github.com/nguyentrigiang",
   "engines": {
     "node": ">=6.0.0"
   },
@@ -84,6 +83,7 @@
     "cordova-plugin-screen-orientation": "^3.0.1",
     "cordova-plugin-statusbar": "^2.4.2",
     "cordova-plugin-whitelist": "^1.3.3",
+    "imagemin-webpack-plugin": "^2.4.2",
     "phaser": "3.15.1",
     "phonegap-plugin-mobile-accessibility": "git+https://github.com/phonegap/phonegap-mobile-accessibility.git"
   },
