@@ -7,6 +7,8 @@ import Cards from '../components/Cards'
 import HorizontalCards from '../components/HorizontalCards'
 import RightSound from '../components/RightSound'
 import WrongSound from '../components/WrongSound'
+import User from "../components/User";
+import GameOneSubFourScene from "./GameOneSubFourScene";
 
 class FindCharactersScene extends Phaser.Scene {
   static get KEY () {
@@ -335,8 +337,9 @@ class FindCharactersScene extends Phaser.Scene {
 
   won () {
     clearCaches(this)
+    User.setDiamond(FindCharactersScene.WIN_DIAMOND)
     this.scene.stop()
-    this.scene.resume(MainGameScene.KEY, { from: FindCharactersScene.KEY, diamond: FindCharactersScene.WIN_DIAMOND })
+    this.scene.resume(GameOneSubFourScene.KEY, {})
   }
 }
 

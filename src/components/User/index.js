@@ -29,9 +29,7 @@ class User {
   static setDiamond (diamond) {
     let user = store.get('user')
     // const id = user.id
-    console.log(user.diamond, diamond);
     user.diamond += diamond
-    console.log(user.diamond, diamond);
     store.set('user', user)
     // axios.post('http://api.cotienxanh.edu.vn/set-diamond', { id, diamond })
   }

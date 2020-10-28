@@ -7,6 +7,7 @@ import RightSound from '../components/RightSound'
 import WrongSound from '../components/WrongSound'
 import { destroyObject, randItem, randSplice, shuffle, clearCaches } from '../helpers'
 import GameOneSubOneScene from './GameOneSubOneScene'
+import User from '../components/User'
 
 class FindPairScene extends Phaser.Scene {
   static get KEY () {
@@ -322,8 +323,9 @@ class FindPairScene extends Phaser.Scene {
 
   won () {
     clearCaches(this)
+    User.setDiamond(FindPairScene.WIN_DIAMOND)
     this.scene.stop()
-    this.scene.resume(GameOneSubOneScene.KEY, { from: FindPairScene.KEY, diamond: FindPairScene.WIN_DIAMOND })
+    this.scene.resume(GameOneSubOneScene.KEY, {})
   }
 }
 

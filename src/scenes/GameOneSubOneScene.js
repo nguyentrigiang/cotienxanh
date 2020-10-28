@@ -48,9 +48,7 @@ class GameOneSubOneScene extends Phaser.Scene {
   }
 
   onResume (scene, data) {
-    // if (undefined !== data && undefined !== data.from) {
-    //   User.setDiamond(data.diamond)
-    // }
+    this.things.diamondBadge.refreshDiamond()
   }
 
   forceRestart () {

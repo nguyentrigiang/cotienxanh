@@ -32,7 +32,7 @@ class DiamondText extends Phaser.GameObjects.Text {
   }
 
   refreshDiamond () {
-    var diamond = store.get(diamond)
+    const { diamond } = User.currentUser()
     this.setText(diamond)
   }
 }

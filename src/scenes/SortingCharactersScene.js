@@ -7,6 +7,8 @@ import RightSound from '../components/RightSound'
 import WrongSound from '../components/WrongSound'
 import { destroyObject, randItem, randSplice, shuffle, clearCaches } from '../helpers'
 import SortingCharactersNormalAndHardestGuideSound from '../components/SortingCharactersNormalAndHardestGuideSound'
+import User from "../components/User";
+import GameOneSubThreeScene from './GameOneSubThreeScene'
 
 class SortingCharactersScene extends Phaser.Scene {
   static get KEY () {
@@ -286,8 +288,9 @@ class SortingCharactersScene extends Phaser.Scene {
 
   won () {
     clearCaches(this)
+    User.setDiamond(SortingCharactersScene.WIN_DIAMOND)
     this.scene.stop()
-    this.scene.resume(MainGameScene.KEY, { from: SortingCharactersScene.KEY, diamond: SortingCharactersScene.WIN_DIAMOND })
+    this.scene.resume(GameOneSubThreeScene.KEY, {})
   }
 }
 

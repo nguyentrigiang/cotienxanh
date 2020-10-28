@@ -8,6 +8,7 @@ import HorizontalCards from '../components/HorizontalCards'
 import RightSound from '../components/RightSound'
 import WrongSound from '../components/WrongSound'
 import { destroyObject, randItem, randSplice, shuffle, clearCaches } from '../helpers'
+import User from "../components/User";
 
 class FantasticRotationScene extends Phaser.Scene {
   static get KEY () {
@@ -325,8 +326,9 @@ class FantasticRotationScene extends Phaser.Scene {
 
   won () {
     clearCaches(this)
+    User.setDiamond(FantasticRotationScene.WIN_DIAMOND)
     this.scene.stop()
-    this.scene.resume(GameOneSubTwoScene.KEY, { from: FantasticRotationScene.KEY, diamond: FantasticRotationScene.WIN_DIAMOND })
+    this.scene.resume(GameOneSubTwoScene.KEY, {})
   }
 }
 
