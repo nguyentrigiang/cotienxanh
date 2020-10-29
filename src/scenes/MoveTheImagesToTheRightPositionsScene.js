@@ -8,6 +8,8 @@ import MainGameScene from './MainGameScene'
 import WrongSound from '../components/WrongSound'
 import { destroyObject, randItem, randSplice, shuffle, clearCaches } from '../helpers'
 import bookContent from '../app/asset/content/bookContent'
+import User from "../components/User";
+import GameThreeScene from "./GameThreeScene";
 
 class MoveTheImagesToTheRightPositionsScene extends Phaser.Scene {
   static get KEY () {
@@ -282,7 +284,7 @@ class MoveTheImagesToTheRightPositionsScene extends Phaser.Scene {
   createBackButton () {
     destroyObject(this.things.backButton)
 
-    this.things.backButton = new BackButton(this, MainGameScene.KEY)
+    this.things.backButton = new BackButton(this, GameThreeScene.KEY)
   }
 
   createSpeaker () {
@@ -363,9 +365,10 @@ class MoveTheImagesToTheRightPositionsScene extends Phaser.Scene {
   }
 
   won () {
+    User.setDiamond(MoveTheImagesToTheRightPositionsScene.WIN_DIAMOND)
     clearCaches(this)
     this.scene.stop()
-    this.scene.resume(MainGameScene.KEY, { from: MoveTheImagesToTheRightPositionsScene.KEY, diamond: MoveTheImagesToTheRightPositionsScene.WIN_DIAMOND })
+    this.scene.resume(GameThreeScene.KEY, {})
   }
 }
 

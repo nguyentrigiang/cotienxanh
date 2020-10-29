@@ -41,6 +41,11 @@ class GameThreeScene extends Phaser.Scene {
     this.createLevelButtons()
 
     addBee(this)
+    this.events.on('resume', this.onResume.bind(this))
+  }
+
+  onResume (scene, data) {
+    this.things.diamondBadge.refreshDiamond()
   }
 
   forceRestart () {
@@ -95,6 +100,7 @@ class GameThreeScene extends Phaser.Scene {
       this.things.homeButton = new HomeButton(this, y)
 
       this.things.homeButton.setCallback(() => {
+        this.scene.pause()
         this.things.welcomeAudio.stop()
       })
     }
@@ -110,6 +116,7 @@ class GameThreeScene extends Phaser.Scene {
       this.things.levelEasyButton.setCallback(() => {
         this.things.welcomeAudio.stop()
         // this.scene.start(MainGameScene.KEY, {parentSceneKey: GameThreeScene.KEY, forceRestart: true, gameSceneKey: GameThreeScene.GAME_SCENE_KEY, level: 'easy' })
+        this.scene.pause()
         this.scene.run(GameThreeScene.GAME_SCENE_KEY, {level: 'easy' })
       })
     }
@@ -117,6 +124,7 @@ class GameThreeScene extends Phaser.Scene {
       this.things.levelNormalButton = new LevelNormalButton(this)
       this.things.levelNormalButton.setCallback(() => {
         this.things.welcomeAudio.stop()
+        this.scene.pause()
         // this.scene.start(MainGameScene.KEY, {parentSceneKey: GameThreeScene.KEY, forceRestart: true, gameSceneKey: GameThreeScene.GAME_SCENE_KEY, level: 'normal' })
         this.scene.run(GameThreeScene.GAME_SCENE_KEY, {level: 'normal' })
       })
@@ -125,6 +133,7 @@ class GameThreeScene extends Phaser.Scene {
       this.things.levelHardButton = new LevelHardButton(this)
       this.things.levelHardButton.setCallback(() => {
         this.things.welcomeAudio.stop()
+        this.scene.pause()
         // this.scene.start(MainGameScene.KEY, {parentSceneKey: GameThreeScene.KEY, forceRestart: true, gameSceneKey: GameThreeScene.GAME_SCENE_KEY, level: 'hard' })
         this.scene.run(GameThreeScene.GAME_SCENE_KEY, {level: 'hard' })
       })

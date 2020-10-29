@@ -45,6 +45,12 @@ class GameFourScene extends Phaser.Scene {
     this.createLevelButtons()
 
     addBee(this)
+    this.events.on('resume', this.onResume.bind(this))
+  }
+
+  onResume (scene, data) {
+    console.log('Resume')
+    this.things.diamondBadge.refreshDiamond()
   }
 
   forceRestart () {
@@ -98,7 +104,10 @@ class GameFourScene extends Phaser.Scene {
       const y = this.things.coinBadge.coinImage.y + this.things.coinBadge.coinImage.displayHeight / 2 + 8
       this.things.homeButton = new HomeButton(this, y)
 
-      this.things.homeButton.setCallback(() => this.things.welcomeAudio.stop())
+      this.things.homeButton.setCallback(() => {
+        this.scene.pause()
+        this.things.welcomeAudio.stop()
+      })
     }
   }
 
@@ -112,8 +121,8 @@ class GameFourScene extends Phaser.Scene {
       this.things.levelEasyButton.setCallback(() => {
         this.things.welcomeAudio.stop()
         // this.scene.start(MainGameScene.KEY, {parentSceneKey: GameFourScene.KEY, forceRestart: true, gameSceneKey: GameFourScene.GAME_SCENE_KEY, level: 'easy' })
+        this.scene.pause()
         this.scene.run(GameFourScene.GAME_SCENE_KEY, {level: 'easy' })
-
       })
     }
     if (this.things.levelNormalButton === undefined) {
@@ -121,6 +130,7 @@ class GameFourScene extends Phaser.Scene {
       this.things.levelNormalButton.setCallback(() => {
         this.things.welcomeAudio.stop()
         // this.scene.start(MainGameScene.KEY, {parentSceneKey: GameFourScene.KEY, forceRestart: true, gameSceneKey: GameFourScene.GAME_SCENE_KEY, level: 'normal' })
+        this.scene.pause()
         this.scene.run(GameFourScene.GAME_SCENE_KEY, {level: 'normal' })
       })
     }
@@ -129,6 +139,7 @@ class GameFourScene extends Phaser.Scene {
       this.things.levelHardButton.setCallback(() => {
         this.things.welcomeAudio.stop()
         // this.scene.start(MainGameScene.KEY, {parentSceneKey: GameFourScene.KEY, forceRestart: true, gameSceneKey: GameFourScene.GAME_HARD_SCENE_KEY, level: 'hard' })
+        this.scene.pause()
         this.scene.run(GameFourScene.GAME_HARD_SCENE_KEY, {level: 'hard' })
       })
     }

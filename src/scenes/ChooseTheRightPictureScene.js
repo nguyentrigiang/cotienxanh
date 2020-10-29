@@ -7,6 +7,8 @@ import RightSound from '../components/RightSound'
 import MainGameScene from './MainGameScene'
 import WrongSound from '../components/WrongSound'
 import { destroyObject, randItem, randSplice, shuffle, clearCaches } from '../helpers'
+import User from "../components/User";
+import GameFourScene from "./GameFourScene"
 
 class ChooseTheRightPictureScene extends Phaser.Scene {
   static get KEY () {
@@ -158,7 +160,7 @@ class ChooseTheRightPictureScene extends Phaser.Scene {
   createBackButton () {
     destroyObject(this.things.backButton)
 
-    this.things.backButton = new BackButton(this, MainGameScene.KEY)
+    this.things.backButton = new BackButton(this, GameFourScene.KEY)
   }
 
   onCardChoose (card) {
@@ -220,9 +222,10 @@ class ChooseTheRightPictureScene extends Phaser.Scene {
   }
 
   won () {
+    User.setDiamond(ChooseTheRightPictureScene.WIN_DIAMOND)
     clearCaches(this)
     this.scene.stop()
-    this.scene.resume(MainGameScene.KEY, { from: ChooseTheRightPictureScene.KEY, diamond: ChooseTheRightPictureScene.WIN_DIAMOND })
+    this.scene.resume(GameFourScene.KEY, {})
   }
 }
 

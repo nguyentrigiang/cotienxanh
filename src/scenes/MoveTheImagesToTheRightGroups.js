@@ -7,6 +7,9 @@ import RightSound from '../components/RightSound'
 import MainGameScene from './MainGameScene'
 import WrongSound from '../components/WrongSound'
 import { destroyObject, randItem, randSplice, shuffle, clearCaches } from '../helpers'
+import User from "../components/User"
+import GameFourScene from "./GameFourScene"
+import GameThreeScene from "./GameThreeScene";
 
 class MoveTheImagesToTheRightGroups extends Phaser.Scene {
   static get KEY () {
@@ -155,7 +158,7 @@ class MoveTheImagesToTheRightGroups extends Phaser.Scene {
   createBackButton () {
     destroyObject(this.things.backButton)
 
-    this.things.backButton = new BackButton(this, MainGameScene.KEY)
+    this.things.backButton = new BackButton(this, GameFourScene.KEY)
   }
 
   createTheDragFeature () {
@@ -254,9 +257,10 @@ class MoveTheImagesToTheRightGroups extends Phaser.Scene {
   }
 
   won () {
+    User.setDiamond(MoveTheImagesToTheRightGroups.WIN_DIAMOND)
     clearCaches(this)
     this.scene.stop()
-    this.scene.resume(MainGameScene.KEY, { from: MoveTheImagesToTheRightGroups.KEY, diamond: MoveTheImagesToTheRightGroups.WIN_DIAMOND })
+    this.scene.resume(GameFourScene.KEY, {})
   }
 }
 
