@@ -10,6 +10,8 @@ import { destroyObject, randItem, randSplice, shuffle, clearCaches } from '../he
 import AskSound from '../components/AskSound'
 import Text from '../components/Text'
 import poemContent from '../app/asset/content/poemContent'
+import GameTwoSubTwoScene from "./GameTwoSubTwoScene";
+import User from "../components/User";
 
 class CompleteTheStoriesScene extends Phaser.Scene {
   static get KEY () {
@@ -195,7 +197,7 @@ class CompleteTheStoriesScene extends Phaser.Scene {
   createBackButton () {
     destroyObject(this.things.backButton)
 
-    this.things.backButton = new BackButton(this, MainGameScene.KEY, this.stopSound.bind(this))
+    this.things.backButton = new BackButton(this, GameTwoSubTwoScene.KEY, this.stopSound.bind(this))
   }
 
   playRightSound (delay = 0) {
@@ -216,9 +218,10 @@ class CompleteTheStoriesScene extends Phaser.Scene {
 
   won () {
     this.time.delayedCall(2, () => {
+      User.setDiamond(CompleteTheStoriesScene.WIN_DIAMOND)
       clearCaches(this)
       this.scene.stop()
-      this.scene.resume(MainGameScene.KEY, { from: CompleteTheStoriesScene.KEY, diamond: CompleteTheStoriesScene.WIN_DIAMOND })
+      this.scene.resume(GameTwoSubTwoScene.KEY, {})
     })
   }
 

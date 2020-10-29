@@ -41,6 +41,11 @@ class GameTwoSubTwoScene extends Phaser.Scene {
     this.createLevelButtons()
 
     addBee(this)
+    this.events.on('resume', this.onResume.bind(this))
+  }
+
+  onResume (scene, data) {
+    this.things.diamondBadge.refreshDiamond()
   }
 
   forceRestart () {
@@ -100,6 +105,7 @@ class GameTwoSubTwoScene extends Phaser.Scene {
       this.things.levelEasyButton = new LevelEasyButton(this)
       // this.things.levelEasyButton.setCallback(() => this.scene.start(MainGameScene.KEY, {parentSceneKey: GameTwoSubTwoScene.KEY, forceRestart: true, gameSceneKey: GameTwoSubTwoScene.GAME_SCENE_KEY, level: 'easy' }))
       this.things.levelEasyButton.setCallback(() => {
+        this.scene.pause()
         this.scene.run(GameTwoSubTwoScene.GAME_SCENE_KEY, {level: 'easy' })
       })
     }

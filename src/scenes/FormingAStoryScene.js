@@ -10,6 +10,8 @@ import { destroyObject, randItem, randSplice, clearCaches } from '../helpers'
 import AskSound from '../components/AskSound'
 import Text from '../components/Text'
 import storiesContent from '../app/asset/content/storiesContent'
+import User from "../components/User";
+import GameTwoSubOneScene from "./GameTwoSubOneScene";
 
 class FormingAStoryScene extends Phaser.Scene {
   static get KEY () {
@@ -169,7 +171,7 @@ class FormingAStoryScene extends Phaser.Scene {
   createBackButton () {
     destroyObject(this.things.backButton)
 
-    this.things.backButton = new BackButton(this, MainGameScene.KEY, this.stopSound.bind(this))
+    this.things.backButton = new BackButton(this, GameTwoSubOneScene.KEY, this.stopSound.bind(this))
   }
 
   playRightSound (delay = 0) {
@@ -189,13 +191,14 @@ class FormingAStoryScene extends Phaser.Scene {
   }
 
   won () {
+    User.setDiamond(FormingAStoryScene.WIN_DIAMOND)
     this.createSpeaker()
     this.playRightSound()
     var delay = 1.2
     if (this.things.storySound.duration === undefined) {
       this.time.delayedCall(delay, () => {
         this.scene.stop()
-        this.scene.resume(MainGameScene.KEY, { from: FormingAStoryScene.KEY, diamond: FormingAStoryScene.WIN_DIAMOND })
+        this.scene.resume(GameTwoSubOneScene.KEY, {})
       })
     } else {
       const askSound = this.sound.add(AskSound.KEY)
@@ -211,7 +214,7 @@ class FormingAStoryScene extends Phaser.Scene {
       this.time.delayedCall(delay, () => {
         clearCaches(this)
         this.scene.stop()
-        this.scene.resume(MainGameScene.KEY, { from: FormingAStoryScene.KEY, diamond: FormingAStoryScene.WIN_DIAMOND })
+        this.scene.resume(GameTwoSubOneScene.KEY, {})
       })
     }
   }
