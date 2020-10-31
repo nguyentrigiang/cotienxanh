@@ -40,7 +40,6 @@ class GameOneSubFourScene extends Phaser.Scene {
     this.createBackButton()
     this.createMusicButton()
     this.createLevelButtons()
-    console.log('create')
 
     addBee(this)
     this.events.on('resume', this.onResume.bind(this))

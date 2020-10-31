@@ -49,7 +49,6 @@ class GameFourScene extends Phaser.Scene {
   }
 
   onResume (scene, data) {
-    console.log('Resume')
     this.things.diamondBadge.refreshDiamond()
   }
 
