@@ -213,7 +213,7 @@ class SortingCharactersScene extends Phaser.Scene {
   createBackButton () {
     destroyObject(this.things.backButton)
 
-    this.things.backButton = new BackButton(this, MainGameScene.KEY)
+    this.things.backButton = new BackButton(this, GameOneSubThreeScene.KEY)
   }
 
   onClickSpeaker (pointer, x, y, event) {
