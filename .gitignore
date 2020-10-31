@@ -9,3 +9,4 @@ build
 platforms
 plugins
 deploy.js
+keystore.jks
